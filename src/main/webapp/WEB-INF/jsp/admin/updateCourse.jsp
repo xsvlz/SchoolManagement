@@ -21,7 +21,7 @@
         </div>
     </div>
     <form action="${pageContext.request.contextPath}/admin/updateCourse" method="post">
-        <input type="text" name="sno" value="${cono}" style="display: none">
+        <input type="text" name="cono" value="${cono}" style="display: none">
         课程名：<input type="text" name="coname"><br><br>
         教师号：<input type="text" name="tno"><br><br>
         <input type="submit" value="确认修改">
