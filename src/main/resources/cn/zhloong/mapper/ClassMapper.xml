@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.zhloong.mapper.ClassMapper">
+
+    <select id="queryAllClass" resultType="cn.zhloong.pojo.Class">
+        select *
+        from CLASS;
+    </select>
+    <select id="queryClass" resultType="cn.zhloong.pojo.Class">
+        select *
+        from CLASS
+        where cno = #{cno};
+    </select>
+    <insert id="addClass" parameterType="cn.zhloong.pojo.Class">
+        insert into CLASS(cno, cname, number, department, mainteacher)
+        VALUES (#{cno}, #{cname}, #{number}, #{department}, #{mainteacher});
+    </insert>
+    <update id="updateClass" parameterType="cn.zhloong.pojo.Class">
+        update CLASS
+        <set>
+            <if test="cname != '' and cname != null">cname = #{cname}</if>
+            <if test="number != '' and number != null">`number` = #{number}</if>
+            <if test="department != '' and department != null">department = #{department}</if>
+            <if test="mainteacher != '' and mainteacher != null">mainteacher = #{mainteacher}</if>
+        </set>
+        where cno = #{cno};
+    </update>
+    <delete id="deleteClass">
+        delete
+        from CLASS
+        where cno = #{cno};
+    </delete>
+    <select id="queryClassByTno" resultType="cn.zhloong.pojo.Class">
+        select *
+        from CLASS
+        where mainteacher = #{tno};
+    </select>
+</mapper>

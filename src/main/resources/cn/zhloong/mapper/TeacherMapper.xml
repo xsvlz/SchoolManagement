@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.zhloong.mapper.TeacherMapper">
+
+    <select id="queryAllTeacher" resultType="cn.zhloong.pojo.Teacher">
+        select *
+        from TEACHER;
+    </select>
+    <select id="queryTeacher" resultType="cn.zhloong.pojo.Teacher">
+        select *
+        from TEACHER
+        where tno = #{tno};
+    </select>
+    <insert id="addTeacher" parameterType="cn.zhloong.pojo.Teacher">
+        insert into TEACHER(tno, tname, tsex, tbackground, tprofession, department, tpass)
+        values (#{tno}, #{tname}, #{tsex}, #{tbackground}, #{tprofession}, #{department}, #{tpass});
+    </insert>
+    <update id="updateTeacher" parameterType="cn.zhloong.pojo.Teacher">
+        update TEACHER
+        <set>
+            <if test="tname != '' and tname != null">tname = #{tname}</if>
+            <if test="tsex != '' and tsex != null">tsex = #{tsex}</if>
+            <if test="tbackground != '' and tbackground != null">tbackground = #{tbackground}</if>
+            <if test="tprofession != '' and tprofession != null">tprofession = #{tprofession}</if>
+            <if test="department != '' and department != null">department = #{department}</if>
+            <if test="tpass != '' and tpass != null">tpass = #{tpass}</if>
+        </set>
+        where tno = #{tno};
+    </update>
+    <delete id="deleteTeacher">
+        delete
+        from TEACHER
+        where tno = #{tno};
+    </delete>
+
+</mapper>

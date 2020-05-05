@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.zhloong.mapper.GradeMapper">
+
+    <select id="queryAllGrade" resultType="cn.zhloong.pojo.Grade">
+        select *
+        from GRADE;
+    </select>
+    <select id="queryGrade" resultType="cn.zhloong.pojo.Grade">
+        select *
+        from GRADE
+        where sno = #{sno}
+          and cono = #{cno};
+    </select>
+    <insert id="addGrade" parameterType="cn.zhloong.pojo.Grade">
+        insert into GRADE(sno, cono, grade)
+        VALUES (#{sno}, #{cono}, #{grade});
+    </insert>
+    <update id="updateGrade" parameterType="cn.zhloong.pojo.Grade">
+        update GRADE
+        set grade = #{grade}
+        where cono = #{cono}
+          and sno = #{sno};
+    </update>
+    <delete id="deleteGrade">
+        delete
+        from GRADE
+        where sno = #{sno}
+          and cono = #{cno};
+    </delete>
+    <select id="queryGradeBySno" resultType="cn.zhloong.pojo.Grade">
+        select g.sno, g.cono, g.grade, s.sname, c.coname
+        from GRADE g, STUDENT s, COURSE c
+        where g.sno = #{sno}
+        and g.sno = s.sno
+        and g.cono = c.cono;
+    </select>
+    <select id="queryGradeByCono" resultType="cn.zhloong.pojo.Grade">
+        select g.sno, g.cono, g.grade, s.sname, c.coname
+        from GRADE g, STUDENT s, COURSE c
+        where g.cono = #{cono}
+          and g.sno = s.sno
+          and g.cono = c.cono;
+    </select>
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.zhloong.mapper.AdminMapper">
+
+    <select id="queryAllAdmin" resultType="cn.zhloong.pojo.Administrate">
+        select *
+        from administrate;
+    </select>
+    <select id="queryAdministrate" resultType="cn.zhloong.pojo.Administrate">
+        select *
+        from administrate
+        where ano = #{ano};
+    </select>
+</mapper>

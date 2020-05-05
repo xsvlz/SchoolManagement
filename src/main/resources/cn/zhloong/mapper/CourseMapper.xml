@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.zhloong.mapper.CourseMapper">
+
+    <select id="queryAllCourse" resultType="cn.zhloong.pojo.Course">
+        select *
+        from COURSE;
+    </select>
+    <select id="queryCourse" resultType="cn.zhloong.pojo.Course">
+        select *
+        from COURSE
+        where cono = #{cono};
+    </select>
+    <insert id="addCourse" parameterType="cn.zhloong.pojo.Course">
+        insert into COURSE(cono, coname, tno)
+        VALUES (#{cono}, #{coname}, #{tno});
+    </insert>
+    <update id="updateCourse" parameterType="cn.zhloong.pojo.Course">
+        update COURSE
+        <set>
+            <if test="coname != '' and coname != null">coname = #{coname}</if>
+            <if test="tno != '' and tno != null">tno = #{tno}</if>
+        </set>
+        where cono = #{cono};
+    </update>
+    <delete id="deleteCourse">
+        delete
+        from COURSE
+        where cono = #{cono};
+    </delete>
+    <select id="queryCourseByTno" resultType="cn.zhloong.pojo.Course">
+        select *
+        from COURSE
+        where tno = #{tno};
+    </select>
+</mapper>
