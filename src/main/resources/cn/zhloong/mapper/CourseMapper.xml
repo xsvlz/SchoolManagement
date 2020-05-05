@@ -21,8 +21,8 @@
     <update id="updateCourse" parameterType="cn.zhloong.pojo.Course">
         update COURSE
         <set>
-            <if test="coname != '' and coname != null">coname = #{coname}</if>
-            <if test="tno != '' and tno != null">tno = #{tno}</if>
+            <if test="coname != '' and coname != null">coname = #{coname},</if>
+            <if test="tno != '' and tno != null">tno = #{tno},</if>
         </set>
         where cono = #{cono};
     </update>

@@ -30,7 +30,7 @@
                 cno = #{cno},
             </if>
             <if test="spass != '' and spass != null">
-                spass = #{spass}
+                spass = #{spass},
             </if>
         </set>
         where sno = #{sno};

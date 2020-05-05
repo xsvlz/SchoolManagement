@@ -21,12 +21,12 @@
     <update id="updateTeacher" parameterType="cn.zhloong.pojo.Teacher">
         update TEACHER
         <set>
-            <if test="tname != '' and tname != null">tname = #{tname}</if>
-            <if test="tsex != '' and tsex != null">tsex = #{tsex}</if>
-            <if test="tbackground != '' and tbackground != null">tbackground = #{tbackground}</if>
-            <if test="tprofession != '' and tprofession != null">tprofession = #{tprofession}</if>
-            <if test="department != '' and department != null">department = #{department}</if>
-            <if test="tpass != '' and tpass != null">tpass = #{tpass}</if>
+            <if test="tname != '' and tname != null">tname = #{tname},</if>
+            <if test="tsex != '' and tsex != null">tsex = #{tsex},</if>
+            <if test="tbackground != '' and tbackground != null">tbackground = #{tbackground},</if>
+            <if test="tprofession != '' and tprofession != null">tprofession = #{tprofession},</if>
+            <if test="department != '' and department != null">department = #{department},</if>
+            <if test="tpass != '' and tpass != null">tpass = #{tpass},</if>
         </set>
         where tno = #{tno};
     </update>

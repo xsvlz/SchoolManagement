@@ -21,10 +21,10 @@
     <update id="updateClass" parameterType="cn.zhloong.pojo.Class">
         update CLASS
         <set>
-            <if test="cname != '' and cname != null">cname = #{cname}</if>
-            <if test="number != '' and number != null">`number` = #{number}</if>
-            <if test="department != '' and department != null">department = #{department}</if>
-            <if test="mainteacher != '' and mainteacher != null">mainteacher = #{mainteacher}</if>
+            <if test="cname != '' and cname != null">cname = #{cname},</if>
+            <if test="number != '' and number != null">`number` = #{number},</if>
+            <if test="department != '' and department != null">department = #{department},</if>
+            <if test="mainteacher != '' and mainteacher != null">mainteacher = #{mainteacher},</if>
         </set>
         where cno = #{cno};
     </update>
